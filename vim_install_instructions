@@ -1,6 +1,6 @@
 1. install required libraries:
 
-libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev ncurses-dev
+libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev ncurses-dev ctags
 
 1.5. locate where the required packages install their files with:
 
@@ -27,3 +27,10 @@ and not like
 vim --version
 
 +clipboard
+
+5. vim source folder containt relevant information that vim uses
+during runtime (runtime folder). We need to point out VIMRUNTIME
+environment variable to this folder:
+in ~/.bashrc file:
+
+export VIMRUNTIME='''path_to_vim_source'''/runtime
