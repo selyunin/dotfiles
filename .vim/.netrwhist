@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home'
+let g:netrw_dirhist_2='/'
+let g:netrw_dirhist_3='/home/selyunin/.vimbackup'
+let g:netrw_dirhist_4='/home/selyunin/Downloads/utorrent-server-alpha-v3_3/docs'
+let g:netrw_dirhist_5='/home/selyunin/catkin_ws/src/beginner_tutorials'
+let g:netrw_dirhist_6='/home/selyunin'
+let g:netrw_dirhist_7='/home/selyunin/Downloads/vim/src/auto'

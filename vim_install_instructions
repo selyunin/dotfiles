@@ -1,0 +1,29 @@
+1. install required libraries:
+
+libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev ncurses-dev
+
+1.5. locate where the required packages install their files with:
+
+dpkg-query -L libxtst-dev
+
+2. configure and specify where X includes and libraries are located:
+
+./configure --with-x --x-includes=/usr/include/X11/ --x-libraries=/usr/lib/x86_64-linux-gnu/
+
+3. check if configuration includes X 
+after
+
+grep X11 src/auto/config.h
+
+the response should look like
+
+#define HAVE_X11
+
+and not like
+
+/* #undef HAVE_X11 */
+
+4. after compiling vim, check its options to ensure that
+vim --version
+
++clipboard

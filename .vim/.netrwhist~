@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/etc/apt/sources.list.d'
+let g:netrw_dirhist_2='/home/selyunin/Documents'
+let g:netrw_dirhist_3='/home/selyunin/Dropbox/FWF_proposal_2013/us_gos_csr_2011/GOS-CSR-2011/supplementary'
+let g:netrw_dirhist_4='/home/selyunin/Dropbox/FWF_proposal_2013/proposal2013/sections'
+let g:netrw_dirhist_5='/home/selyunin/Dropbox/ResearchMethods/sections'
+let g:netrw_dirhist_6='/home/selyunin/Dropbox/thesis/cv'
+let g:netrw_dirhist_7='/home/selyunin/Documents/tutorial/railstutorial/blog/config'
