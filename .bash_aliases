@@ -1,6 +1,8 @@
 ## get rid of command not found ##
 alias cd..='cd ..'
 ## a quick way to get out of current directory ##
+alias vim='/home/selyunin/bin/vim'
+alias vi='/home/selyunin/bin/vim'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -17,7 +19,9 @@ alias vimdiff='vim -d'
 alias p='pwd'
 alias ks='ls'
 alias sl='ls'
+alias LS='ls'
 alias amke='make'
+alias mkae='make'
 alias fhere='find . -name'
 alias mkdir='mkdir -pv'
 

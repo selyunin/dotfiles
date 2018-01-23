@@ -63,6 +63,8 @@ else
 fi
 unset color_prompt force_color_prompt
 
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[0;34m\]@\[\033[1;32m\]\h\[\033[00m\]$(__git_ps1 " (%s)"):\[\033[01;34m\]\w\[\033[00m\]\$ '
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -114,6 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 # Added by selyunin
+export VIMRUNTIME=/home/selyunin/vim/runtime
 #Git complettion
 source ~/.git-completion.bash
 source ~/.git-prompt.sh

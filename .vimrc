@@ -56,6 +56,7 @@ set showcmd		" display incomplete commands
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 "set background=dark
 "colorscheme solarized
+colorscheme desert
 set undodir=~/.vimbackup,.
 set backupdir=~/.vimbackup,.
 set directory=~/.vimbackup,.
@@ -84,6 +85,7 @@ set scrolloff=3 	" minimum lines to keep above and below cursor
 map Q gq
 nnoremap <C-J> o<Esc>
 nnoremap <C-K> O<Esc>
+nnoremap <C-L> @='I%<C-V><Esc>j'<CR>
 " nmap <F7> o<Esc>
 " nmap <F8> O<Esc>
 nnoremap <silent> <F8> :TlistToggle<CR>
@@ -163,6 +165,25 @@ set grepprg=grep\ -nH\ $*
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
+"hi clear CursorLine
+"augroup CLClear
+"    autocmd! ColorScheme * hi clear CursorLine
+"augroup END
 
-" language tool jar path
-let g:languagetool_jar='/home/selyunin/Downloads/LanguageTool-2.2/languagetool-commandline.jar'
+hi CursorLineNR cterm=bold
+augroup CLNRSet
+    autocmd! ColorScheme * hi CursorLineNR cterm=bold
+augroup END
+
+highlight LineNr ctermfg=grey
+
+filetype off
+set runtimepath+=/usr/share/lilypond/2.18.2/vim
+filetype on
+syntax on
+
+" associate *.foo with php filetype
+au BufRead,BufNewFile *.launch setfiletype xml
+au BufRead,BufNewFile *.rviz setfiletype yaml
+
+hi SpellBad ctermbg=red
