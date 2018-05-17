@@ -14,11 +14,13 @@ The repo holds configuration files to set up a LinuxBox.
 
 ### <a name="packages"></a>2. Bash
 
-*  [`.bashrc`](./.bashrc)
-
 *  [`.inputrc`](./.inputrc) 
 
+*  [`.bashrc`](./.bashrc)
+
 *  [`.bash_aliases`](./.bash_aliases)
+
+*  [`.bash_profile`](./.bash_profile)
 
 ### <a name="vim"></a>3. Vim
 
