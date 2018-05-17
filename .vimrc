@@ -1,4 +1,3 @@
-
 " An example for a vimrc file.
 "
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
@@ -32,6 +31,8 @@ endif
 set history=1000	" store tonn of history
 
 " added by selyunin
+" show filename in the terminal 
+set title
 " line numbers
 set number
 " highlight search results
@@ -47,31 +48,48 @@ set mouse=a
 " line of a window
 set ruler
 " size of a hard tabstop
-set tabstop=4
+set tabstop=2
 " size of an "indent"
-set shiftwidth=4
+set shiftwidth=2
+" allow for cursor beyond last character
+set virtualedit=onemore  
+" highlight current line
+set cursorline		
+" display incomplete commands
+set showcmd		
+" do incremental searching
+set incsearch		
+" display the current mode
+set showmode		
+" minimum lines to keep above and below cursor
+set scrolloff=3 	
 
-set virtualedit=onemore  " allow for cursor beyond last character
-set showcmd		" display incomplete commands
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-"set background=dark
-"colorscheme solarized
-colorscheme desert
+"======================
+" Back up and swap files 
+"======================
 set undodir=~/.vimbackup,.
 set backupdir=~/.vimbackup,.
 set directory=~/.vimbackup,.
 set undofile		" so is persistent undo ...
 set undolevels=1000	"maximum number of changes that can be undone
 set undoreload=10000 	"maximum number lines to save for undo on a buffer reload
-set incsearch		" do incremental searching
-set showmode		" display the current mode
 
-set cursorline		" highlight current line
+"======================
+" Color scheme 
+" Note, that in .vim/after/syntax are defined additional modifications of the
+" desert color scheme applied to file formats
+"======================
+"set background=dark
+colorscheme desert
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 hi cursorline guibg=#333333	 " highlight bg color of current line
 hi CursorColumn guibg=#333333	 " highlight cursor
+hi CursorLineNR cterm=bold
+hi SpellBad ctermbg=DarkRed
+
+
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
-set scrolloff=3 	" minimum lines to keep above and below cursor
 " Don't use Ex mode, use Q for formatting
 	if has('cmdline_info')
 		set ruler " show the ruler
@@ -80,25 +98,6 @@ set scrolloff=3 	" minimum lines to keep above and below cursor
 		" selected characters/lines in visual mode
 	endif
 	
-	
-
-map Q gq
-nnoremap <C-J> o<Esc>
-nnoremap <C-K> O<Esc>
-nnoremap <C-L> @='I%<C-V><Esc>j'<CR>
-" nmap <F7> o<Esc>
-" nmap <F8> O<Esc>
-nnoremap <silent> <F8> :TlistToggle<CR>
-nmap <C-I> i<CR><Esc>
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
-
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
@@ -140,13 +139,33 @@ else
   
 endif " has("autocmd")
 
+"======================
+" Custom keystroke mappings 
+"======================
+map Q gq
+nnoremap <C-J> o<Esc>
+nnoremap <C-K> O<Esc>
+" nmap <F7> o<Esc>
+" nmap <F8> O<Esc>
+nnoremap <silent> <F8> :TlistToggle<CR>
+nmap <C-I> i<CR><Esc>
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
 " Toggle spell checking on and off with `,s`
 let mapleader = ","
 nmap <silent> <leader>s :set spell!<CR>
-
 " Toggle text width 70 and wrap with `,t`
 let mapleader = ","
 nmap <silent> <leader>t :set tw=70<CR> :set wrap<CR>
+
+function CommentLines()
+  "let Comment="#" " shell, tcl, php, perl
+  exe ":s@^@".g:Comment."@g"
+  exe ":s@$@".g:EndComment."@g"
+endfunction
+
+nnoremap <C-L> :call CommentLines()<Esc>j
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -161,29 +180,22 @@ endif
 " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
 
+" Add LilyPond support
+filetype off
+set runtimepath+=/usr/share/lilypond/2.18.2/vim
+" filetype on
+filetype on
+syntax on
+
+"======================
+" File type association
+"======================
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
-"hi clear CursorLine
-"augroup CLClear
-"    autocmd! ColorScheme * hi clear CursorLine
-"augroup END
-
-hi CursorLineNR cterm=bold
-augroup CLNRSet
-    autocmd! ColorScheme * hi CursorLineNR cterm=bold
-augroup END
-
-highlight LineNr ctermfg=grey
-
-filetype off
-set runtimepath+=/usr/share/lilypond/2.18.2/vim
-filetype on
-syntax on
-
-" associate *.foo with php filetype
+" associate *.launch (ROS launch files) with the xml format
 au BufRead,BufNewFile *.launch setfiletype xml
+" associate *.rviz (ROS RViz settings files) with the yaml format
 au BufRead,BufNewFile *.rviz setfiletype yaml
 
-hi SpellBad ctermbg=red
