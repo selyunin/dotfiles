@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 # Added by selyunin
-export VIMRUNTIME=/home/selyunin/vim/runtime
+export VIMRUNTIME=~/vim/runtime
 #Git complettion
 source ~/.git-completion.bash
 source ~/.git-prompt.sh
