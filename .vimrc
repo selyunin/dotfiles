@@ -1,13 +1,6 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2011 Apr 15
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+" vimrc configuration file
+" adapted from:	Bram Moolenaar <Bram@vim.org>
+" modifications: Konstantin Selyunin
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -30,7 +23,6 @@ else
 endif
 set history=1000	" store tonn of history
 
-" added by selyunin
 " show filename in the terminal 
 set title
 " line numbers
@@ -143,11 +135,14 @@ endif " has("autocmd")
 " Custom keystroke mappings 
 "======================
 map Q gq
+" Ctrl+J -> insert line below cursor
 nnoremap <C-J> o<Esc>
+" Ctrl+K -> insert line above cursor
 nnoremap <C-K> O<Esc>
 " nmap <F7> o<Esc>
 " nmap <F8> O<Esc>
 nnoremap <silent> <F8> :TlistToggle<CR>
+" Ctrl+I -> insert line break at the position of the cursor
 nmap <C-I> i<CR><Esc>
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -165,6 +160,8 @@ function CommentLines()
   exe ":s@$@".g:EndComment."@g"
 endfunction
 
+" CTRL+L -> comment the current line 
+" (commenting symbol is specified in .vim/filetype.vim)
 nnoremap <C-L> :call CommentLines()<Esc>j
 
 " Convenient command to see the difference between the current buffer and the
