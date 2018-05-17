@@ -27,12 +27,11 @@ The repo holds configuration files to set up a LinuxBox.
 *  [`.vim`](./.vim)
 
 
-**Compile vim from source with the clipboard support**
+#### 3.2 Compile vim from source with the clipboard support
 
 0. Clone vim repo from the github:
 
 `git clone git@github.com:vim/vim.git`
-
 
 1. install required libraries:
 
@@ -50,7 +49,7 @@ OpenSuse:
 
 2. configure with `X11` and specify path to the includes and libraries:
 
-./configure --with-x --x-includes=/usr/include/X11/ --x-libraries=/usr/lib/x86_64-linux-gnu/
+`./configure --with-x --x-includes=/usr/include/X11/ --x-libraries=/usr/lib/x86_64-linux-gnu/`
 
 3. Check if the configuration includes `X11` support. In vim root folder do:
 
@@ -79,6 +78,8 @@ in the `~/.bashrc` file:
 `export VIMRUNTIME='''path_to_vim_source'''/runtime`
 
 ### <a name="git"></a>4. Git
+
+The two config files are copied from the official git repo ([link](https://github.com/git/git/tree/master/contrib/completion)):
 
 *  [`.git-completion.bash`](./.git-completion.bash)
 
