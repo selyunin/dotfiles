@@ -10,23 +10,23 @@ My LinuxBox configuration repo
 
 ### <a name="description"></a>1. Description
 
-The repo holds configuration files to set up a LinuxBox.
+Configuration files to set up a LinuxBox.
 
 ### <a name="packages"></a>2. Bash
 
-*  [`.inputrc`](./.inputrc) 
+*  [`.inputrc`](./.inputrc) - *readline* configuration file 
 
-*  [`.bashrc`](./.bashrc)
+*  [`.bashrc`](./.bashrc) 
 
-*  [`.bash_aliases`](./.bash_aliases)
+*  [`.bash_aliases`](./.bash_aliases) 
 
-*  [`.bash_profile`](./.bash_profile)
+*  [`.bash_profile`](./.bash_profile) - useful functions
 
 ### <a name="vim"></a>3. Vim
 
-*  [`.vimrc`](./.vimrc)
+*  [`.vimrc`](./.vimrc) - configuration file
 
-*  [`.vim`](./.vim)
+*  [`.vim`](./.vim) - configuration folder
 
 
 #### 3.2 Compile vim from source with the clipboard support
