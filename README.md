@@ -31,15 +31,15 @@ The repo holds configuration files to set up a LinuxBox.
 
 #### 3.2 Compile vim from source with the clipboard support
 
-0. Clone vim repo from the github:
+##### 3.2.1 Clone vim repo from the github:
 
 `git clone git@github.com:vim/vim.git`
 
-1. install required libraries:
+##### 3.2.2  install required libraries:
 
 `libx11-dev libxtst-dev libxt-dev libsm-dev libxpm-dev ncurses-dev ctags`
 
-1.5. Locate where the required packages install their files.
+##### 3.2.3 Locate where the required packages install their files.
 
 Ubuntu:
 
@@ -49,11 +49,11 @@ OpenSuse:
 
 `rpm -qa libxtst-dev`
 
-2. configure with `X11` and specify path to the includes and libraries:
+##### 3.2.4  Configure with `X11` and specify path to the includes and libraries:
 
 `./configure --with-x --x-includes=/usr/include/X11/ --x-libraries=/usr/lib/x86_64-linux-gnu/`
 
-3. Check if the configuration includes `X11` support. In vim root folder do:
+##### 3.2.5  Check if the configuration includes `X11` support. In the vim root folder do:
 
 `grep X11 src/auto/config.h`
 
@@ -65,19 +65,19 @@ And not like:
 
 `/* #undef HAVE_X11 */`
 
-4. after compiling vim, check its options to ensure that `clipboard` 
-option is enabled:
+##### 3.2.6 After compiling vim, check its options to ensure that `clipboard` option is enabled:
 
 `vim --version`
 
 +clipboard
 
-5. vim source folder contains relevant information that vim uses
-during runtime (runtime folder). 
+##### 3.2.7  Set up vim runtime. 
+Vim source folder contains relevant information 
+that vim uses during runtime (`${vimroot}/runtime`). 
 We need to point out `VIMRUNTIME` environment variable to this folder:
 in the `~/.bashrc` file:
 
-`export VIMRUNTIME='''path_to_vim_source'''/runtime`
+`export VIMRUNTIME='''path/to/vim/source'''/runtime`
 
 ### <a name="git"></a>4. Git
 

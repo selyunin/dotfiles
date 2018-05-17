@@ -56,3 +56,12 @@ function back( )
 	cd $P
 	export MPWD=$P
 }
+
+function lsize( )
+{
+	if [ -z "$1" ]; then
+		du -a -h --max-depth=1 | sort -hr 
+	else
+		du -a -h --max-depth=1 | sort -hr | head -n $(($1 + 1))
+	fi
+}
