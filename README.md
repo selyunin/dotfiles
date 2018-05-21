@@ -16,17 +16,18 @@ Configuration files to set up a LinuxBox.
 
 *  [`.inputrc`](./.inputrc) - *readline* configuration file 
 
-*  [`.bashrc`](./.bashrc) 
+*  [`.bashrc`](./.bashrc) - PS1 variable, sourcing other files, storing history 
 
-*  [`.bash_aliases`](./.bash_aliases) 
+*  [`.bash_aliases`](./.bash_aliases) - avoiding typos where possible
 
-*  [`.bash_profile`](./.bash_profile) - useful functions
+*  [`.bash_profile`](./.bash_profile) - useful functions, e.g. 
+`lsize 3` -- lists 3 largest entries (files/folders) in the directory
 
 ### <a name="vim"></a>3. Vim
 
-*  [`.vimrc`](./.vimrc) - configuration file
+*  [`.vimrc`](./.vimrc) - define useful keystrokes and vim configuration
 
-*  [`.vim`](./.vim) - configuration folder
+*  [`.vim`](./.vim) - comment function and syntax highlighting in `after`
 
 
 #### 3.2 Compile vim from source with the clipboard support
