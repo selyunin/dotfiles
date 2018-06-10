@@ -39,10 +39,12 @@ set mouse=a
 " Display the cursor position on the last line of the screen or in the status
 " line of a window
 set ruler
-" size of a hard tabstop
-set tabstop=2
-" size of an "indent"
+" indentation without tabs
+set expandtab
+" size of an `indent`
 set shiftwidth=2
+" how the size of the (soft) tab in the insert mode
+set softtabstop=2
 " allow for cursor beyond last character
 set virtualedit=onemore  
 " highlight current line
