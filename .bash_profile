@@ -65,3 +65,22 @@ function lsize( )
 		du -a -h --max-depth=1 | sort -hr | head -n $(($1 + 1))
 	fi
 }
+
+rsync_on_save( )
+{
+    SRC=$1
+    DEST=$2
+
+    prev_stat_result=`stat -c %Y $SRC/* | sort -n | tail -1`
+
+    while true; do
+        current_stat_result=`stat -c %Y $SRC/* | sort -n | tail -1`
+        if [ $current_stat_result != $prev_stat_result ]; then
+          echo "NOT EQUAL"
+          rsync -avP $SRC/ $DEST
+        fi
+        sleep 1
+        prev_stat_result=$current_stat_result
+    done
+}
+
