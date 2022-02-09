@@ -66,7 +66,7 @@ function lsize( )
 	fi
 }
 
-rsync_on_save( )
+function rsync_on_save( )
 {
     SRC=$1
     DEST=$2
