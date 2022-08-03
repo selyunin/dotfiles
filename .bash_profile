@@ -83,3 +83,21 @@ function rsync_on_save( )
     done
 }
 
+function rsync_file_from_server( )
+{
+    FILE=$1
+    SERVER=$2
+    DEST=$2
+
+    prev_stat_result=`ssh ${SERVER} stat -c %Y ${FILE} | tail -1`
+
+    while true; do
+        current_stat_result=`ssh ${SERVER} stat -c %Y ${FILE} | tail -1`
+        if [ $current_stat_result != $prev_stat_result ]; then
+          rsync -avP ${SERVER}:${FILE} $DEST
+        fi
+        sleep 0.7
+        prev_stat_result=$current_stat_result
+    done
+}
+
