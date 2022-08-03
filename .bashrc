@@ -57,13 +57,14 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[0;34m\]@\[\033[1;32m\]\h\[\033[00m\]$(__git_ps1 " (%s)"):\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;96m\]\u\[\033[0;34m\]@\[\033[1;32m\]\h\[\033[00m\]$(__git_ps1 " (%s)"):\[\033[01;34m\]\w\[\033[00m\]\$ '
+    # for root, use the line below
+    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u\[\033[0;34m\]@\[\033[1;32m\]\h\[\033[00m\]$(__git_ps1 " (%s)"):\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[0;34m\]@\[\033[1;32m\]\h\[\033[00m\]$(__git_ps1 " (%s)"):\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
