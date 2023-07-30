@@ -119,6 +119,11 @@ fi
 # Added by selyunin
 export VIMRUNTIME=~/vim/runtime
 #Git complettion
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM=git
+export GIT_PS1_SHOWCOLORHINTS=1
 source ~/.git-completion.bash
 source ~/.git-prompt.sh
 source ~/.bash_profile
