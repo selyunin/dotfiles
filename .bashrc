@@ -126,4 +126,3 @@ export GIT_PS1_SHOWUPSTREAM=git
 export GIT_PS1_SHOWCOLORHINTS=1
 source ~/.git-completion.bash
 source ~/.git-prompt.sh
-source ~/.bash_profile

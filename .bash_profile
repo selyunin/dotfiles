@@ -101,3 +101,6 @@ function rsync_file_from_server( )
     done
 }
 
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi
